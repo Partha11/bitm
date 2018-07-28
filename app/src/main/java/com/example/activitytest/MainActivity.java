@@ -25,8 +25,9 @@ public class MainActivity extends AppCompatActivity {
     RadioGroup radioGroup;
 
     List<String> skills;
+    List<EmployeeInfo> employeeinfo;
 
-    StudentInfo student;
+    EmployeeInfo emp;
 
     String name;
     String _age;
@@ -40,9 +41,11 @@ public class MainActivity extends AppCompatActivity {
 
         skills = new ArrayList<>();
 
-        radioGroup = findViewById(R.id.radioGroup);
+        radioGroup = findViewById(R.id.radioGroup1);
 
         radioGroup.check(R.id.male);
+
+        employeeinfo = new ArrayList<>();
 
         initFields();
     }
@@ -112,11 +115,11 @@ public class MainActivity extends AppCompatActivity {
 
                 else {
 
-                    student = new StudentInfo(name, _age, skillConcatenated, gender);
+                    emp = new EmployeeInfo(name, _age, skillConcatenated, gender);
 
-                    Intent i = new Intent(MainActivity.this, StudentActivity.class);
+                    Intent i = new Intent(MainActivity.this, Employee.class);
 
-                    i.putExtra("name", student);
+                    i.putExtra("name", emp);
 
                     startActivity(i);
 

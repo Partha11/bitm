@@ -2,14 +2,14 @@ package com.example.activitytest;
 
 import java.io.Serializable;
 
-public class StudentInfo implements Serializable {
+public class EmployeeInfo implements Serializable {
 
     private String name;
     private String _age;
     private String skill;
     private String gender;
 
-    public StudentInfo(String name, String _age, String skill, String gender) {
+    public EmployeeInfo(String name, String _age, String skill, String gender) {
 
         this.name = name;
         this._age = _age;

@@ -1,15 +1,14 @@
 package com.example.activitytest;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-public class StudentActivity extends AppCompatActivity {
+public class Employee extends AppCompatActivity {
 
     TextView fields[];
 
-    StudentInfo student;
+    EmployeeInfo student;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +19,7 @@ public class StudentActivity extends AppCompatActivity {
 
         Bundle bundle = getIntent().getExtras();
 
-        student = (StudentInfo) bundle.getSerializable("name");
+        student = (EmployeeInfo) bundle.getSerializable("name");
 
         fields[0].setText(student.getName());
         fields[1].setText(student.get_age());
