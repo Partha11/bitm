@@ -176,7 +176,6 @@
         android:text="Submit"
         android:textSize="20dp"
         android:layout_marginTop="5dp"
-        android:layout_below="@+id/spinner"
-        android:onClick="submitButtonClicked" />
+        android:layout_below="@+id/spinner" />
 
 </RelativeLayout>

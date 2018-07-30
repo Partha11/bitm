@@ -26,15 +26,7 @@ public class Employee extends AppCompatActivity {
 
         mListView = findViewById(R.id.listView);
 
-        singleEmp = (EmployeeInfo) getIntent().getSerializableExtra("empInfo");
-
-        if (singleEmp == null)
-
-            System.out.println("**************************************************Null Object");
-
-        empList.add(singleEmp);
-
-        empAdapter = new EmployeeAdapter(this, empList);
+        empAdapter = new EmployeeAdapter(this, TempData.getEmpInfo());
 
         mListView.setAdapter(empAdapter);
     }

@@ -50,6 +50,44 @@ public class MainActivity extends AppCompatActivity {
         genderGroup.check(R.id.male);
 
         initFields();
+
+        submitButton = findViewById(R.id.submitButton);
+
+        submitButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+
+                skillConcatenated = TextUtils.join(", ", skills);
+
+                RadioButton genderSelection = findViewById(genderGroup.getCheckedRadioButtonId());
+                RadioButton salarySelection = findViewById(salaryGroup.getCheckedRadioButtonId());
+
+                name = fields[0].getText().toString();
+                mail = fields[1].getText().toString();
+                pass = fields[2].getText().toString();
+                _age = fields[3].getText().toString();
+
+                /*gender = genderSelection.getText().toString();
+                salary = salarySelection.getText().toString();*/
+
+                gender = "Male";
+                salary = "GG";
+
+                //emp = new EmployeeInfo(name, mail, pass, _age, skillConcatenated, gender, salary);
+
+                //TempData.getEmpInfo().add(emp);
+
+                String test = name + " " + mail + " " + pass + " " + _age + " " + skillConcatenated + " " + gender + " " + salary;
+
+                /*Intent i = new Intent(MainActivity.this, Employee.class);
+                startActivity(i);*/
+
+                Toast.makeText(MainActivity.this, test, Toast.LENGTH_SHORT).show();
+
+                skills.clear();
+            }
+        });
     }
 
     public void initFields() {
@@ -81,39 +119,5 @@ public class MainActivity extends AppCompatActivity {
 
             Toast.makeText(this, text + " removed", Toast.LENGTH_SHORT).show();
         }
-    }
-
-    public void submitButtonClicked(View view) {
-
-        submitButton = (Button) view;
-
-        /*name = fields[0].getText().toString();
-        mail = fields[1].getText().toString();
-        pass = fields[2].getText().toString();
-        _age = fields[1].getText().toString();*/
-
-        skillConcatenated = TextUtils.join(", ", skills);
-
-        RadioButton genderSelection = findViewById(genderGroup.getCheckedRadioButtonId());
-        RadioButton salarySelection = findViewById(salaryGroup.getCheckedRadioButtonId());
-
-        gender = genderSelection.getText().toString();
-        salary = salarySelection.getText().toString();
-
-        emp = new EmployeeInfo(name, mail, pass, _age, skillConcatenated, gender, salary);
-
-        submitButton.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-
-                Intent i = new Intent(MainActivity.this, Employee.class);
-
-                i.putExtra("empInfo", emp);
-                startActivity(i);
-
-                skills.clear();
-            }
-        });
     }
 }
