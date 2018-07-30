@@ -24,11 +24,8 @@ public class Employee extends AppCompatActivity {
 
         empList = new ArrayList<>();
 
-<<<<<<< HEAD
         testData();
 
-=======
->>>>>>> 138b0bc97218fd8495a3dac903f4d987ae7cc496
         mListView = findViewById(R.id.listView);
 
         empAdapter = new EmployeeAdapter(this, TempData.getEmpInfo());
