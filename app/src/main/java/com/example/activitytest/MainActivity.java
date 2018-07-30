@@ -56,21 +56,51 @@ public class MainActivity extends AppCompatActivity {
         submitButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
+<<<<<<< HEAD
             public void onClick( View view ) {
 
                 //emp = new EmployeeInfo("abc", "abc", "***", "21", "java", "male", "500");
+=======
+            public void onClick(View view) {
+
+                skillConcatenated = TextUtils.join(", ", skills);
+
+                RadioButton genderSelection = findViewById(genderGroup.getCheckedRadioButtonId());
+                RadioButton salarySelection = findViewById(salaryGroup.getCheckedRadioButtonId());
+>>>>>>> 138b0bc97218fd8495a3dac903f4d987ae7cc496
 
                 name = fields[0].getText().toString();
                 mail = fields[1].getText().toString();
                 pass = fields[2].getText().toString();
                 _age = fields[3].getText().toString();
 
+<<<<<<< HEAD
                 emp = new EmployeeInfo(name, mail, pass, _age, "java", "male", "500");
 
                 TempData.empInfo.add(emp);
 
                 Intent intent = new Intent(MainActivity.this, Employee.class);
                 startActivity(intent);
+=======
+                /*gender = genderSelection.getText().toString();
+                salary = salarySelection.getText().toString();*/
+
+                gender = "Male";
+                salary = "GG";
+
+                //emp = new EmployeeInfo(name, mail, pass, _age, skillConcatenated, gender, salary);
+
+                //TempData.getEmpInfo().add(emp);
+
+                String test = name + " " + mail + " " + pass + " " + _age + " " + skillConcatenated + " " + gender + " " + salary;
+
+                /*Intent i = new Intent(MainActivity.this, Employee.class);
+                startActivity(i);*/
+
+                Toast.makeText(MainActivity.this, test, Toast.LENGTH_SHORT).show();
+
+                skills.clear();
+>>>>>>> 138b0bc97218fd8495a3dac903f4d987ae7cc496
             }
         });
     }
