@@ -6,15 +6,21 @@ public class EmployeeInfo implements Serializable {
 
     private String name;
     private String _age;
-    private String skill;
+    private String skills;
     private String gender;
+    private String email;
+    private String password;
+    private String salary;
 
-    public EmployeeInfo(String name, String _age, String skill, String gender) {
+    public EmployeeInfo(String name, String email, String password, String _age, String skills, String gender, String salary) {
 
         this.name = name;
+        this.email = email;
+        this.password = password;
         this._age = _age;
-        this.skill = skill;
+        this.skills = skills;
         this.gender = gender;
+        this.salary = salary;
     }
 
     public String getName() {
@@ -22,29 +28,19 @@ public class EmployeeInfo implements Serializable {
         return name;
     }
 
-    public void setName(String name) {
-
-        this.name = name;
-    }
-
     public String get_age() {
 
         return _age;
     }
 
-    public void set_age(String _age) {
-
-        this._age = _age;
-    }
-
     public String getSkill() {
 
-        return skill;
+        return skills;
     }
 
-    public void setSkill(String skill) {
+    public String getEmail() {
 
-        this.skill = skill;
+        return email;
     }
 
     public String getGender() {
@@ -52,8 +48,8 @@ public class EmployeeInfo implements Serializable {
         return gender;
     }
 
-    public void setGender(String gender) {
+    public String getSalary() {
 
-        this.gender = gender;
+        return salary;
     }
 }

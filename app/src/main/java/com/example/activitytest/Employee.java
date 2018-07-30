@@ -2,52 +2,40 @@ package com.example.activitytest;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ListView;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Employee extends AppCompatActivity {
 
-    TextView fields[];
+    ListView mListView;
 
-    EmployeeInfo student;
+    List<EmployeeInfo> empList;
+
+    EmployeeInfo singleEmp;
+    EmployeeAdapter empAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_student);
+        setContentView(R.layout.activity_layout_employee);
 
-        initFields();
+        empList = new ArrayList<>();
 
-        Bundle bundle = getIntent().getExtras();
+        mListView = findViewById(R.id.listView);
 
-        student = (EmployeeInfo) bundle.getSerializable("name");
+        singleEmp = (EmployeeInfo) getIntent().getSerializableExtra("empInfo");
 
-        fields[0].setText(student.getName());
-        fields[1].setText(student.get_age());
-        fields[2].setText(student.getSkill());
-        fields[3].setText(student.getGender());
-    }
+        if (singleEmp == null)
 
-    public void initFields() {
+            System.out.println("**************************************************Null Object");
 
-        fields = new TextView[4];
+        empList.add(singleEmp);
 
-        for (int i = 0; i < 4; i++) {
+        empAdapter = new EmployeeAdapter(this, empList);
 
-            if (i == 0)
-
-                fields[i] = findViewById(R.id.name);
-
-            else if (i == 1)
-
-                fields[i] = findViewById(R.id.age);
-
-            else if (i == 2)
-
-                fields[i] = findViewById(R.id.skills);
-
-            else
-
-                fields[i] = findViewById(R.id.gender);
-        }
+        mListView.setAdapter(empAdapter);
     }
 }

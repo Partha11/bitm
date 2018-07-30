@@ -10,10 +10,9 @@
         android:id="@+id/nameField"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
         android:hint="Name"
         android:inputType="text"
-        android:textSize="20dp"/>
+        android:textSize="20sp"/>
 
     <EditText
         android:id="@+id/mailField"
@@ -22,7 +21,7 @@
         android:hint="Email"
         android:inputType="text"
         android:layout_below="@id/nameField"
-        android:textSize="20dp"/>
+        android:textSize="20sp"/>
 
     <EditText
         android:id="@+id/passField"
@@ -31,7 +30,7 @@
         android:hint="Password"
         android:inputType="textPassword"
         android:layout_below="@id/mailField"
-        android:textSize="20dp"/>
+        android:textSize="20sp"/>
 
     <EditText
         android:id="@+id/ageField"
@@ -40,7 +39,7 @@
         android:hint="Age"
         android:inputType="number"
         android:layout_below="@id/passField"
-        android:textSize="20dp"/>
+        android:textSize="20sp"/>
 
     <TextView
         android:id="@+id/programmingLanguages"
@@ -110,11 +109,12 @@
     </LinearLayout>
 
     <RadioGroup
-        android:id="@+id/radioGroup1"
+        android:id="@+id/genderGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_below="@+id/secondLine"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp">
 
         <RadioButton
@@ -140,11 +140,11 @@
     </RadioGroup>
 
     <RadioGroup
-        android:id="@+id/radioGroup2"
+        android:id="@+id/salaryGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:layout_below="@+id/radioGroup1">
+        android:layout_below="@+id/genderGroup">
 
         <RadioButton
             android:layout_width="wrap_content"
@@ -164,7 +164,8 @@
         android:id="@+id/spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp" >
+        android:layout_marginTop="5dp"
+        android:layout_below="@id/salaryGroup">
 
     </Spinner>
 
@@ -175,7 +176,7 @@
         android:text="Submit"
         android:textSize="20dp"
         android:layout_marginTop="5dp"
-        android:layout_below="@+id/radioGroup2"
+        android:layout_below="@+id/spinner"
         android:onClick="submitButtonClicked" />
 
 </RelativeLayout>

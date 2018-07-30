@@ -17,8 +17,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".Employee" />
-        <activity android:name=".layoutEmployee" />
-        <activity android:name=".ListView"></activity>
     </application>
 
 </manifest>

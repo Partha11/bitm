@@ -22,17 +22,20 @@ public class MainActivity extends AppCompatActivity {
     EditText fields[];
     CheckBox checkBox;
     Button submitButton;
-    RadioGroup radioGroup;
+    RadioGroup genderGroup;
+    RadioGroup salaryGroup;
 
     List<String> skills;
-    List<EmployeeInfo> employeeinfo;
 
     EmployeeInfo emp;
 
     String name;
     String _age;
+    String mail;
+    String pass;
     String skillConcatenated;
     String gender;
+    String salary;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,29 +44,22 @@ public class MainActivity extends AppCompatActivity {
 
         skills = new ArrayList<>();
 
-        radioGroup = findViewById(R.id.radioGroup1);
+        genderGroup = findViewById(R.id.genderGroup);
+        salaryGroup = findViewById(R.id.salaryGroup);
 
-        radioGroup.check(R.id.male);
-
-        employeeinfo = new ArrayList<>();
+        genderGroup.check(R.id.male);
 
         initFields();
     }
 
     public void initFields() {
 
-        fields = new EditText[2];
+        fields = new EditText[4];
 
-        for (int i = 0; i < 2; i++) {
-
-            if (i == 0)
-
-                fields[i] = findViewById(R.id.nameField);
-
-            else
-
-                fields[i] = findViewById(R.id.ageField);
-        }
+        fields[0] = findViewById(R.id.nameField);
+        fields[1] = findViewById(R.id.mailField);
+        fields[2] = findViewById(R.id.passField);
+        fields[3] = findViewById(R.id.ageField);
     }
 
     public void checkboxClicked(View view) {
@@ -91,64 +87,33 @@ public class MainActivity extends AppCompatActivity {
 
         submitButton = (Button) view;
 
-        name = fields[0].getText().toString();
-        _age = fields[1].getText().toString();
+        /*name = fields[0].getText().toString();
+        mail = fields[1].getText().toString();
+        pass = fields[2].getText().toString();
+        _age = fields[1].getText().toString();*/
 
         skillConcatenated = TextUtils.join(", ", skills);
 
-        RadioButton radioSelection = findViewById(radioGroup.getCheckedRadioButtonId());
+        RadioButton genderSelection = findViewById(genderGroup.getCheckedRadioButtonId());
+        RadioButton salarySelection = findViewById(salaryGroup.getCheckedRadioButtonId());
 
-        gender = radioSelection.getText().toString();
+        gender = genderSelection.getText().toString();
+        salary = salarySelection.getText().toString();
+
+        emp = new EmployeeInfo(name, mail, pass, _age, skillConcatenated, gender, salary);
 
         submitButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
 
-                if (name.equals(""))
+                Intent i = new Intent(MainActivity.this, Employee.class);
 
-                    fields[0].setError("Please Enter Your Name");
+                i.putExtra("empInfo", emp);
+                startActivity(i);
 
-                else if (_age.equals(""))
-
-                    fields[1].setError("Please Enter Your Age");
-
-                else {
-
-                    emp = new EmployeeInfo(name, _age, skillConcatenated, gender);
-
-                    Intent i = new Intent(MainActivity.this, Employee.class);
-
-                    i.putExtra("name", emp);
-
-                    startActivity(i);
-
-                    skills.clear();
-                }
+                skills.clear();
             }
         });
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-
-        getMenuInflater().inflate(R.menu.main_menu, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        int id = item.getItemId();
-
-        if (id == R.id.new_page)
-
-            Toast.makeText(this, "New Page", Toast.LENGTH_SHORT).show();
-
-        else if (id == R.id.exit)
-
-            Toast.makeText(this, "Exit", Toast.LENGTH_SHORT).show();
-
-        return super.onOptionsItemSelected(item);
     }
 }
