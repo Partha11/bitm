@@ -27,7 +27,7 @@ public class EmployeeAdapter extends ArrayAdapter<EmployeeInfo> {
     public EmployeeAdapter(@NonNull Context context, @NonNull List<EmployeeInfo> empList) {
         super(context, R.layout.layout_model, empList);
 
-        empList = new ArrayList<>();
+        this.empList = new ArrayList<>();
 
         mContext = context;
         this.empList = empList;
@@ -39,7 +39,7 @@ public class EmployeeAdapter extends ArrayAdapter<EmployeeInfo> {
 
         LayoutInflater inflater = LayoutInflater.from(mContext);
 
-        convertView = inflater.inflate(R.layout.activity_layout_employee, parent, false);
+        convertView = inflater.inflate(R.layout.layout_model, parent, false);
 
         mName = convertView.findViewById(R.id.modelName);
         mEmail = convertView.findViewById(R.id.modelEmail);

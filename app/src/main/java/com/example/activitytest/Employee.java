@@ -24,18 +24,31 @@ public class Employee extends AppCompatActivity {
 
         empList = new ArrayList<>();
 
+        testData();
+
         mListView = findViewById(R.id.listView);
 
-        singleEmp = (EmployeeInfo) getIntent().getSerializableExtra("empInfo");
-
-        if (singleEmp == null)
-
-            System.out.println("**************************************************Null Object");
-
-        empList.add(singleEmp);
-
-        empAdapter = new EmployeeAdapter(this, empList);
+        empAdapter = new EmployeeAdapter(this, TempData.getEmpInfo());
 
         mListView.setAdapter(empAdapter);
+    }
+
+    public void testData() {
+
+        /*empList.add(new EmployeeInfo("name", "email", "pass", "age", "abcd", "male", "500"));
+        empList.add(new EmployeeInfo("name", "email", "pass", "age", "abcd", "male", "500"));
+        empList.add(new EmployeeInfo("name", "email", "pass", "age", "abcd", "male", "500"));
+        empList.add(new EmployeeInfo("name", "email", "pass", "age", "abcd", "male", "500"));
+        empList.add(new EmployeeInfo("name", "email", "pass", "age", "abcd", "male", "500"));
+        empList.add(new EmployeeInfo("name", "email", "pass", "age", "abcd", "male", "500"));
+        empList.add(new EmployeeInfo("name", "email", "pass", "age", "abcd", "male", "500"));
+        empList.add(new EmployeeInfo("name", "email", "pass", "age", "abcd", "male", "500"));
+        empList.add(new EmployeeInfo("name", "email", "pass", "age", "abcd", "male", "500"));
+        empList.add(new EmployeeInfo("name", "email", "pass", "age", "abcd", "male", "500"));
+        empList.add(new EmployeeInfo("name", "email", "pass", "age", "abcd", "male", "500"));
+        empList.add(new EmployeeInfo("name", "email", "pass", "age", "abcd", "male", "500"));
+        empList.add(new EmployeeInfo("name", "email", "pass", "age", "abcd", "male", "500"));
+        empList.add(new EmployeeInfo("name", "email", "pass", "age", "abcd", "male", "500"));*/
+        //empList.add(TempData.getEmpInfo().get(0));
     }
 }

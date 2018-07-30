@@ -50,6 +50,29 @@ public class MainActivity extends AppCompatActivity {
         genderGroup.check(R.id.male);
 
         initFields();
+
+        submitButton = findViewById(R.id.submitButton);
+
+        submitButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick( View view ) {
+
+                //emp = new EmployeeInfo("abc", "abc", "***", "21", "java", "male", "500");
+
+                name = fields[0].getText().toString();
+                mail = fields[1].getText().toString();
+                pass = fields[2].getText().toString();
+                _age = fields[3].getText().toString();
+
+                emp = new EmployeeInfo(name, mail, pass, _age, "java", "male", "500");
+
+                TempData.empInfo.add(emp);
+
+                Intent intent = new Intent(MainActivity.this, Employee.class);
+                startActivity(intent);
+            }
+        });
     }
 
     public void initFields() {
@@ -81,39 +104,5 @@ public class MainActivity extends AppCompatActivity {
 
             Toast.makeText(this, text + " removed", Toast.LENGTH_SHORT).show();
         }
-    }
-
-    public void submitButtonClicked(View view) {
-
-        submitButton = (Button) view;
-
-        /*name = fields[0].getText().toString();
-        mail = fields[1].getText().toString();
-        pass = fields[2].getText().toString();
-        _age = fields[1].getText().toString();*/
-
-        skillConcatenated = TextUtils.join(", ", skills);
-
-        RadioButton genderSelection = findViewById(genderGroup.getCheckedRadioButtonId());
-        RadioButton salarySelection = findViewById(salaryGroup.getCheckedRadioButtonId());
-
-        gender = genderSelection.getText().toString();
-        salary = salarySelection.getText().toString();
-
-        emp = new EmployeeInfo(name, mail, pass, _age, skillConcatenated, gender, salary);
-
-        submitButton.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-
-                Intent i = new Intent(MainActivity.this, Employee.class);
-
-                i.putExtra("empInfo", emp);
-                startActivity(i);
-
-                skills.clear();
-            }
-        });
     }
 }
