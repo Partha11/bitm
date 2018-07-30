@@ -12,7 +12,10 @@
         android:layout_height="wrap_content"
         android:hint="Name"
         android:inputType="text"
-        android:textSize="20sp"/>
+        android:textSize="20sp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"/>
 
     <EditText
         android:id="@+id/mailField"
@@ -21,7 +24,9 @@
         android:hint="Email"
         android:inputType="text"
         android:layout_below="@id/nameField"
-        android:textSize="20sp"/>
+        android:textSize="20sp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"/>
 
     <EditText
         android:id="@+id/passField"
@@ -30,7 +35,9 @@
         android:hint="Password"
         android:inputType="textPassword"
         android:layout_below="@id/mailField"
-        android:textSize="20sp"/>
+        android:textSize="20sp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"/>
 
     <EditText
         android:id="@+id/ageField"
@@ -39,7 +46,9 @@
         android:hint="Age"
         android:inputType="number"
         android:layout_below="@id/passField"
-        android:textSize="20sp"/>
+        android:textSize="20sp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp" />
 
     <TextView
         android:id="@+id/programmingLanguages"
@@ -48,14 +57,18 @@
         android:text="Programming Languages:-"
         android:textSize="25sp"
         android:layout_below="@id/ageField"
-        android:layout_marginTop="15dp"/>
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"/>
 
     <LinearLayout
         android:id="@+id/firstLine"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_below="@id/programmingLanguages">
+        android:layout_below="@id/programmingLanguages"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
 
         <CheckBox
             android:id="@+id/javaCheck"
@@ -84,7 +97,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_below="@+id/firstLine">
+        android:layout_below="@+id/firstLine"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
 
         <CheckBox
             android:id="@+id/pythonCheck"
@@ -115,7 +130,7 @@
         android:orientation="horizontal"
         android:layout_below="@+id/secondLine"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="5dp">
+        android:layout_marginTop="20dp">
 
         <RadioButton
             android:id="@+id/male"
@@ -143,16 +158,20 @@
         android:id="@+id/salaryGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_below="@+id/genderGroup">
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/genderGroup"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
 
         <RadioButton
+            android:id="@+id/basedSalary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Based Salaried Employee"
             android:textSize="20dp" />
 
         <RadioButton
+            android:id="@+id/hourlySalary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Hourly Salaried Employee"
@@ -164,18 +183,48 @@
         android:id="@+id/spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_margin="20dp"
         android:layout_below="@id/salaryGroup">
 
     </Spinner>
 
-    <Button
-        android:id="@+id/submitButton"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Submit"
-        android:textSize="20dp"
-        android:layout_marginTop="5dp"
-        android:layout_below="@+id/spinner" />
+        android:layout_below="@+id/spinner"
+        android:layout_margin="20dp">
+
+        <Button
+            android:id="@+id/submitButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="Submit"
+            android:textSize="20dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/submit_button_bg" />
+
+        <Button
+            android:id="@+id/resetButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="Reset"
+            android:textSize="20dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/reset_button_bg" />
+
+        <Button
+            android:id="@+id/loginButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="Log In"
+            android:textSize="20dp"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/login_button_bg" />
+
+    </LinearLayout>
 
 </RelativeLayout>
