@@ -24,7 +24,7 @@ public class Employee extends AppCompatActivity {
 
         empList = new ArrayList<>();
 
-        testData();
+        //testData();
 
         mListView = findViewById(R.id.listView);
 

@@ -11,8 +11,9 @@ public class EmployeeInfo implements Serializable {
     private String email;
     private String password;
     private String salary;
+    private String location;
 
-    public EmployeeInfo(String name, String email, String password, String _age, String skills, String gender, String salary) {
+    public EmployeeInfo(String name, String email, String password, String _age, String skills, String gender, String salary, String location) {
 
         this.name = name;
         this.email = email;
@@ -21,6 +22,7 @@ public class EmployeeInfo implements Serializable {
         this.skills = skills;
         this.gender = gender;
         this.salary = salary;
+        this.location = location;
     }
 
     public String getName() {
@@ -51,5 +53,10 @@ public class EmployeeInfo implements Serializable {
     public String getSalary() {
 
         return salary;
+    }
+
+    public String getLocation() {
+
+        return location;
     }
 }

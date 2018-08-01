@@ -46,7 +46,6 @@
         android:textStyle="bold"
         android:textSize="20sp"
         android:layout_toLeftOf="@+id/modelAge"
-        android:layout_marginRight="5dp"
         android:layout_marginTop="10dp" />
 
     <TextView
@@ -57,7 +56,7 @@
         android:textStyle="bold"
         android:textSize="20sp"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="10dp"
+        android:layout_marginRight="20dp"
         android:layout_marginTop="10dp" />
 
     <TextView
@@ -102,6 +101,52 @@
         android:textStyle="bold"
         android:layout_below="@id/skillsText"
         android:layout_toRightOf="@id/genderText"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/salaryText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Salary:- "
+        android:textStyle="bold"
+        android:layout_below="@id/genderText"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/modelSalary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Salary"
+        android:textStyle="bold"
+        android:layout_below="@id/genderText"
+        android:layout_toRightOf="@id/locationText"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/locationText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Location:- "
+        android:textStyle="bold"
+        android:layout_below="@id/salaryText"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/modelLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Location"
+        android:textStyle="bold"
+        android:layout_below="@id/salaryText"
+        android:layout_toRightOf="@id/locationText"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="10dp"

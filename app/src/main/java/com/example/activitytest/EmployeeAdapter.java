@@ -23,6 +23,9 @@ public class EmployeeAdapter extends ArrayAdapter<EmployeeInfo> {
     private TextView mEmail;
     private TextView mAge;
     private TextView mSkills;
+    private TextView mGender;
+    private TextView mLocation;
+    private TextView mSalary;
 
     public EmployeeAdapter(@NonNull Context context, @NonNull List<EmployeeInfo> empList) {
         super(context, R.layout.layout_model, empList);
@@ -45,11 +48,17 @@ public class EmployeeAdapter extends ArrayAdapter<EmployeeInfo> {
         mEmail = convertView.findViewById(R.id.modelEmail);
         mAge = convertView.findViewById(R.id.modelAge);
         mSkills = convertView.findViewById(R.id.modelSkills);
+        mGender = convertView.findViewById(R.id.modelGender);
+        mLocation = convertView.findViewById(R.id.modelLocation);
+        mSalary = convertView.findViewById(R.id.modelSalary);
 
         mName.setText(empList.get(position).getName());
         mAge.setText(empList.get(position).get_age());
         mEmail.setText(empList.get(position).getEmail());
         mSkills.setText(empList.get(position).getSkill());
+        mGender.setText(empList.get(position).getGender());
+        mLocation.setText(empList.get(position).getLocation());
+        mSalary.setText(empList.get(position).getSalary());
 
         return convertView;
     }

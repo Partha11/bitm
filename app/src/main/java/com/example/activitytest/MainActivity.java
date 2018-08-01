@@ -4,14 +4,15 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -33,7 +34,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     RadioButton genderButton;
     RadioButton salaryButton;
 
+    Spinner locationSpinner;
+
+    ArrayAdapter adapter;
+
     List<String> skills;
+    List<String> locations;
 
     EmployeeInfo emp;
 
@@ -44,6 +50,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     String skillConcatenated;
     String gender;
     String salary;
+    String empLocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,8 +58,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         skills = new ArrayList<>();
+        locations = new ArrayList<>();
 
         initAll();
+        initLocation();
+
+        adapter = new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, locations);
 
         submitButton.setOnClickListener(this);
         resetButton.setOnClickListener(this);
@@ -60,6 +71,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         genderGroup.check(R.id.male);
         salaryGroup.check(R.id.basedSalary);
+
+        locationSpinner.setAdapter(adapter);
+
+        locationSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+                empLocation = locations.get(i).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
     }
 
     public void initAll() {
@@ -77,6 +104,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         submitButton = findViewById(R.id.submitButton);
         resetButton = findViewById(R.id.resetButton);
         loginButton = findViewById(R.id.loginButton);
+
+        locationSpinner = findViewById(R.id.spinner);
+    }
+
+    public void initLocation() {
+
+        locations.add("Dhaka");
+        locations.add("Sylhet");
+        locations.add("Rajshahi");
+        locations.add("Rangpur");
+        locations.add("Comilla");
+        locations.add("Barisal");
+        locations.add("CHittagong");
     }
 
     public void clearAll() {
@@ -186,7 +226,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if (validateFields == 0) {
 
-            emp = new EmployeeInfo(name, mail, pass, _age, skillConcatenated, gender, salary);
+            emp = new EmployeeInfo(name, mail, pass, _age, skillConcatenated, gender, salary, empLocation);
 
             TempData.getEmpInfo().add(emp);
 
