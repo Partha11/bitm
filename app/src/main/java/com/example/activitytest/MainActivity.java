@@ -230,8 +230,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             TempData.getEmpInfo().add(emp);
 
-            Intent intent = new Intent(MainActivity.this, Employee.class);
-            startActivity(intent);
+            resetButtonClicked(view);
         }
 
         else if (validateFields == 1)
@@ -240,15 +239,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         else if (validateFields == 2)
 
-            fields[0].setError("Email field can not be empty!!");
+            fields[1].setError("Email field can not be empty!!");
 
         else if (validateFields == 3)
 
-            fields[0].setError("Password can not be blank!!");
+            fields[2].setError("Password can not be blank!!");
 
         else if (validateFields == 4)
 
-            fields[0].setError("Age field can not be empty!!");
+            fields[3].setError("Age field can not be empty!!");
     }
 
     public void resetButtonClicked(View view) {
@@ -268,6 +267,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void loginButtonClicked(View view) {
 
-        Toast.makeText(MainActivity.this, "Log In Button Clicked", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(MainActivity.this, Employee.class);
+        startActivity(intent);
     }
 }
